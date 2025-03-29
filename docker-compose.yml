@@ -19,24 +19,44 @@ x-eventsdb-env: &eventsdb-env
   EVENTS_DB_USERNAME: elastic
   EVENTS_DB_PASSWORD: es_password
   EVENTS_DB_INDEX: eventslog
+x-authdb-env: &authdb-env
+  AUTHDB_URL: http://authdb:7000
+  AUTHDB_ACCESS_KEY: fakeKey
+  AUTHDB_ACCESS_SECRET: fakeSecret
 
 services:
   gateway:
     build:
-      context: ./gateway
+      args:
+        - EXPOSE_PORT=8080
+      context: ./soa
+      dockerfile: Dockerfile
     environment:
       <<: *mq-env
       PORT: 8080
+      HOSTNAME: gateway
+      SOA_PATH: ./gateway.ts
     ports:
      - "8080:8080"
-    restart: on-failure 
+    restart: on-failure
+    depends_on:
+      - rabbitmq
+    volumes:
+      - ./soa:/usr/src/app
   service-auth:
     build:
-      context: ./service-auth
+      context: ./soa/auth
     environment:
-      <<: *mq-env
+      <<:
+        - *mq-env
+        - *authdb-env
       MQ_QUEUE: auth
+      HOSTNAME: service-auth
+      SOA_PATH: ./auth/service.ts
+      AUTHENTICATION_SECRET: secretFake
+      AWS_REGION: us-east-1
     depends_on:
+      - authdb
       - rabbitmq
     restart: on-failure
   service-analytics:
@@ -94,7 +114,7 @@ services:
     container_name: authdb
     command: [ "-jar", "DynamoDBLocal.jar", "-sharedDb" ]
     ports:
-     - "8000:8000"
+     - "7000:8000"
     networks:
      - opennetwork
     restart: always
@@ -102,9 +122,9 @@ services:
     image: instructure/dynamo-local-admin
     container_name: authdb-admin
     environment:
-      - DYNAMO_ENDPOINT=http:authdb:8000
+      - DYNAMO_ENDPOINT=http://authdb:7000
     ports:
-     - "8001:8001"
+     - "7001:8001"
     networks:
      - opennetwork
     restart: always
@@ -151,15 +171,15 @@ services:
 
   ocpp-broker:
     build:
-      context: ../ocpp-broker
-      dockerfile: Dockerfile
+      context: https://github.com/hodonsky/ocpp-broker.git#dev
+      # context: ../ocpp-broker
     ports:
       - "8443:8443"
     environment:
       <<: *networkdb-env
     volumes:
       - ./certs:/etc/ssl/certs
-      - ../ocpp-broker/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      # - ../ocpp-broker/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
     depends_on:
       - networkdb
     networks:
@@ -170,9 +190,8 @@ services:
       args:
         - OCPP_PORT=6907
         - HTTP_PORT=8181
-      # context: https://github.com/hodonsky/ocpp-service.git#dev
-      context: ../ocpp-service
-      dockerfile: Dockerfile
+      context: https://github.com/hodonsky/ocpp-service.git#dev
+      # context: ../ocpp-service
     ports:
       - "6907"
       - "8181"
@@ -184,10 +203,10 @@ services:
       <<:
        - *eventsdb-env
        - *networkdb-env
-    #restart: on-failure
-    volumes:  
-     - ../ocpp-service/bin:/usr/src/app/bin
-     - ../ocpp-service/src:/usr/src/app/src
+    # restart: on-failure
+    # volumes:  
+    #  - ../ocpp-service/bin:/usr/src/app/bin
+    #  - ../ocpp-service/src:/usr/src/app/src
     depends_on:
      - networkdb
      - eventsdb

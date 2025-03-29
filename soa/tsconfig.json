@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // Babel handles transpilation
+    "module": "ESNext", // Babel supports modern modules
+    "lib": ["ES2020"],
+    "types": ["node"],
+    "moduleResolution": "node",
+    "strict": true,
+    "noEmit": true, // Prevent TypeScript from emitting JS
+    "resolveJsonModule": true, // Enable JSON imports
+    "esModuleInterop": true, // Ensure compatibility with CommonJS
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [ "src/**/*" ],
+  "exclude": [ "node_modules", "dist", "docs" ]
+}

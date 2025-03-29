@@ -1,0 +1,38 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "esmodules": true
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    [ "@babel/plugin-transform-typescript",{"allowDeclareFields" : true}],
+    "@babel/plugin-transform-class-properties",
+    "@babel/plugin-proposal-do-expressions",
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-transform-export-namespace-from",
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-transform-nullish-coalescing-operator",
+    "@babel/plugin-transform-object-rest-spread",
+    "@babel/plugin-transform-optional-chaining",
+    "@babel/plugin-proposal-partial-application",
+    "@babel/plugin-transform-private-methods",
+    "@babel/plugin-proposal-throw-expressions",
+    "@babel/plugin-transform-runtime",
+    [ "@babel/plugin-proposal-pipeline-operator", { "proposal": "fsharp" } ]
+  ],
+  "ignore": [
+    "node_modules/*",
+    "node_modules/**/*",
+    "./*.test.js",
+    "tests/**"
+  ],
+  "sourceMaps": true
+}
