@@ -1,0 +1,11 @@
+groupId,evseId,added,active,priority,notes
+group7,evse6,2022-06-06,false,5,
+group3,evse4,2022-06-13,false,2,
+group10,evse10,2022-04-27,false,5,
+group1,evse5,2022-04-22,true,4,
+group10,evse10,2022-09-12,false,4,
+group8,evse8,2022-09-20,true,5,
+group8,evse3,2022-09-13,true,3,
+group9,evse10,2022-05-11,true,2,
+group5,evse4,2022-11-10,true,2,
+group1,evse1,2022-04-06,false,5,

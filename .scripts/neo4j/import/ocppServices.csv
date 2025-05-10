@@ -1,4 +1,4 @@
-ocppServiceId,hostname,wsPort,httpPort,evseId
+id,hostname,wsPort,httpPort,evseId
 OS1,ocpp-service-1,6907,8181,EV1
 OS1,ocpp-service-1,6907,8181,EV2
 OS2,ocpp-service-2,6907,8181,EV3

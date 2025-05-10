@@ -1,0 +1,11 @@
+parentOrganizationId,subsidiaryOrganizationId,ownershipPercentage,since,source,status,type
+org2,org1,100,2021-03-03,CSV,Active,Full
+org3,org2,100,2022-04-27,CSV,Active,Partial
+org1,org10,50,2020-12-05,CSV,Active,Full
+org9,org4,100,2022-10-06,CSV,Inactive,Full
+org8,org5,50,2020-09-05,CSV,Inactive,Partial
+org5,org3,50,2021-06-06,CSV,Active,Full
+org7,org2,75,2021-06-18,CSV,Inactive,Full
+org8,org9,50,2021-08-11,CSV,Active,Partial
+org10,org6,100,2020-10-25,CSV,Active,Full
+org4,org5,50,2020-12-27,CSV,Active,Partial

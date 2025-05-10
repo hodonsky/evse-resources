@@ -1,0 +1,1 @@
+> openssl req -x509 -nodes -newkey rsa:2048 -keyout certs/broker.key -out certs/broker.crt -days 365 -config broker-ssl-san.cnf

@@ -1,0 +1,2 @@
+station_model_id,station_model_name,station_model_description,station_model_capacity,station_model_recoilers,station_model_orientation,station_model_mount_id
+stationmodel1,"Station Model One","A description of Station Model One",4,true,N,mount1

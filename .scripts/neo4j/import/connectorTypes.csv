@@ -1,0 +1,11 @@
+id,name,description,maxPowerKw,standard
+ctype1,CT-ctype1,Standard,50.0,SAE
+ctype2,CT-ctype2,Standard,100.0,IEC
+ctype3,CT-ctype3,Standard,100.0,SAE
+ctype4,CT-ctype4,Standard,100.0,IEC
+ctype5,CT-ctype5,Standard,50.0,IEC
+ctype6,CT-ctype6,Standard,50.0,SAE
+ctype7,CT-ctype7,Standard,50.0,IEC
+ctype8,CT-ctype8,Standard,100.0,IEC
+ctype9,CT-ctype9,Standard,50.0,IEC
+ctype10,CT-ctype10,Standard,100.0,IEC

@@ -1,0 +1,2 @@
+subpanel_id,name,capacity_amps,voltage_v,company_id
+sub1,Subpanel A,200,480,pc1

@@ -145,26 +145,32 @@ services:
      - opennetwork
 
   networkdb:
-    image: neo4j:5
+    build:
+      context: .
+      dockerfile: neo4j.Dockerfile
     ports:
      - "7474:7474"
      - "7473:7473"
      - "7687:7687"
     environment:
      - NEO4J_AUTH=neo4j/password
-    volumes:
-     - .scripts/neo4j/import:/var/lib/neo4j/import
+     - NEO4J_dbms_security_allow__csv__import__from__file__urls=true
+     - NEO4J_PLUGINS=["apoc"]
+     - NEO4J_apoc_import_file_enabled=true
+     - NEO4J_apoc_trigger_enabled=true
+     - NEO4J_dbms_routing_enabled=true
     restart: on-failure
     networks:
       - opennetwork
     command: >
       bash -c "
         /startup/docker-entrypoint.sh neo4j &  # Start Neo4j with the default entrypoint script
-        sleep 20 &&  # Give Neo4j time to start
-        until echo 'MATCH (n) RETURN n LIMIT 1;' | cypher-shell -u neo4j -p password;
-        do echo 'Waiting for Neo4j to be ready...' && sleep 5;
+        sleep 6 &&  # Give Neo4j time to start
+        until cypher-shell -u neo4j -p password 'RETURN 1'; do
+          echo 'Waiting for Neo4j to be ready...'; sleep 5;
         done &&
-        cypher-shell -u neo4j -p password -f /var/lib/neo4j/import/import.cypher &&
+        echo 'Neo4J is read. Running import...' &&
+        cypher-shell -u neo4j -p password -f /var/lib/neo4j/import/import.cypher  &&
         neo4j stop &&  # Stop the background Neo4j instance
         /startup/docker-entrypoint.sh neo4j
       "
@@ -190,8 +196,8 @@ services:
       args:
         - OCPP_PORT=6907
         - HTTP_PORT=8181
-      context: https://github.com/hodonsky/ocpp-service.git#dev
-      # context: ../ocpp-service
+      # context: https://github.com/hodonsky/ocpp-service.git#dev
+      context: ../ocpp-service
     ports:
       - "6907"
       - "8181"
@@ -224,16 +230,18 @@ services:
      - "8180:8180"
     environment:
      - PORT=8180
-     - NODE_EXTRA_CA_CERTS=/usr/local/share/ca-certificates/broker.crt
+     - EVSE_CA_CERT=./evse-cert.pem
+     - EVSE_CA_KEY=./evse-key.pem
+     - EVSE_CA_PEM=./evse-ca.pem
      - HEARTBEAT_TIMEOUT=30000
-     - OCPP_HOST=ocpp-broker
-     - OCPP_PORT=8443
+     - OCPP_HOST=ocpp.dev.onfreeflow.com
+     - OCPP_PORT=443
      - OCPP_PATH=/evse/connect
      - PROTOCOL=wss
-    volumes:
-      - ./certs/broker.crt:/usr/local/share/ca-certificates/broker.crt
-    extra_hosts:
-      - "ocpp-broker:172.15.0.5"
+    #volumes:
+     # - ./certs/broker.crt:/usr/local/share/ca-certificates/broker.crt
+    #extra_hosts:
+    #  - "ocpp-broker:172.15.0.5"
     networks:
       opennetwork:
         ipv4_address: 172.15.0.9

@@ -1,3 +1,11 @@
-siteId,name
-S1,Site A
-S2,Site B
+id,organizationId,name,role,tenure,since,until,delegatedFinancials,status,source,notes
+site1,org5,Site site1,Primary,3 years,2020-12-05,2023-10-11,false,Active,CSV,
+site2,org5,Site site2,Primary,5 years,2021-12-26,2024-05-18,true,Active,CSV,
+site3,org3,Site site3,Primary,3 years,2020-12-19,2024-12-19,true,Active,CSV,
+site4,org1,Site site4,Primary,2 years,2022-06-04,2023-07-27,false,Active,CSV,
+site5,org8,Site site5,Secondary,2 years,2020-09-06,2024-05-14,false,Active,CSV,
+site6,org4,Site site6,Secondary,5 years,2022-03-03,2023-07-24,false,Inactive,CSV,
+site7,org4,Site site7,Primary,1 years,2019-08-03,2023-03-12,true,Active,CSV,
+site8,org7,Site site8,Secondary,5 years,2021-07-15,,false,Inactive,CSV,
+site9,org9,Site site9,Primary,5 years,2022-08-30,2024-06-12,false,Inactive,CSV,
+site10,org2,Site site10,Primary,3 years,2020-03-31,2023-12-19,true,Active,CSV,

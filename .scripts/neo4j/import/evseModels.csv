@@ -1,0 +1,11 @@
+id,modelName,maxPowerKw,connectorTypes,modelOcppVersion,phase,portCount,modelActive
+model1,Model model1,150.0,ctype1;ctype4,1.6,1,3,true
+model2,Model model2,150.0,ctype4;ctype5,2.0,1,2,false
+model3,Model model3,50.0,ctype8;ctype7,1.6,1,1,false
+model4,Model model4,100.0,ctype7;ctype10,2.0,3,1,true
+model5,Model model5,50.0,ctype7;ctype6,1.6,1,2,true
+model6,Model model6,150.0,ctype8;ctype3,2.0,1,3,false
+model7,Model model7,50.0,ctype2;ctype8,1.6,1,1,true
+model8,Model model8,50.0,ctype3;ctype7,2.0,2,2,false
+model9,Model model9,50.0,ctype3;ctype7,1.6,2,3,false
+model10,Model model10,100.0,ctype7;ctype9,2.0,1,2,false

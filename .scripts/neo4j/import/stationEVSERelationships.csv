@@ -1,0 +1,2 @@
+station_id,evse_id,position,orientation_override,added
+station1,evse1,1,0,2022-03-15T10:00:00

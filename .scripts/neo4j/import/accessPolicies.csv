@@ -1,0 +1,2 @@
+policy_id,name,type,schedule_json,roles_allowed
+pol1,NightAccess,TimeBased,"{""start"":""22:00"",""end"":""06:00""}",Admin;Maintenance

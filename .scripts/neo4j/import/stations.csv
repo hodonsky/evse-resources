@@ -1,0 +1,2 @@
+station_id,station_model_id,name,latitude,longitude,address,created,orientation,mount_type,weather_rating,capacity,recoilers
+station1,stationmodel1,Station One,34.0500,-118.2500,123 Main St,2022-03-15T10:00:00,N,Pole,5,4,true

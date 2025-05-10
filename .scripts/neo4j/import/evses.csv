@@ -1,6 +1,11 @@
-evseId,serialNumber,evseGroupId
-EV1,1o1-2024-b1-00001,EG1
-EV2,1o1-2024-b1-00002,EG1
-EV3,1o1-2024-b1-00003,EG2
-EV4,1o1-2024-b1-00004,EG3
-EV5,1o1-2024-b1-00005,EG3
+id,modelId,organizationId,model,vendorId,firmwareId,created,virtual,test,publicKey,lastSeen,timezone
+evse1,model4,org1,model10,vendor9,firm1,2022-10-18T11:38:15,false,true,vs4f8cgv,2023-09-20T05:26:13,America/Los_Angeles
+evse2,model4,org7,model2,vendor10,firm1,2022-08-13T19:55:00,true,true,xuljylje,2023-09-08T16:30:12,America/Los_Angeles
+evse3,model5,org8,model6,vendor2,firm1,2022-06-27T23:31:50,true,true,hj755nf4,2023-10-01T05:28:02,America/Los_Angeles
+evse4,model5,org10,model9,vendor1,firm1,2022-11-14T07:57:45,false,true,j60fkhmy,2023-11-28T05:43:25,America/Los_Angeles
+evse5,model5,org9,model8,vendor5,firm1,2022-02-05T20:17:02,false,false,a1wj0tpa,2023-01-30T05:19:24,America/Los_Angeles
+evse6,model3,org9,model1,vendor6,firm1,2022-08-03T13:54:25,true,false,bn78bmyy,2023-05-18T08:31:25,America/Los_Angeles
+evse7,model9,org7,model10,vendor3,firm1,2022-12-02T18:42:33,true,true,a0l7253j,2023-11-02T18:51:44,America/Los_Angeles
+evse8,model2,org7,model1,vendor8,firm1,2022-03-19T12:09:12,false,false,35ixokc1,2023-05-17T08:55:08,America/Los_Angeles
+evse9,model9,org7,model9,vendor6,firm1,2022-02-14T19:03:46,false,true,8jdp0lvs,2023-05-30T14:16:53,America/Los_Angeles
+evse10,model10,org4,model5,vendor1,firm1,2022-06-19T08:21:02,true,true,p87wxe6s,2023-09-16T23:53:32,America/Los_Angeles

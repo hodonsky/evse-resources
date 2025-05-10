@@ -1,0 +1,11 @@
+id,vendorName,vendorCountry,vendorCertified,vendorOcppVersions,vendorEmail
+vendor1,Vendor vendor1,UK,true,2.0,vendor1@example.com
+vendor2,Vendor vendor2,UK,false,1.6,vendor2@example.com
+vendor3,Vendor vendor3,UK,true,1.6;2.0,vendor3@example.com
+vendor4,Vendor vendor4,Canada,false,1.6;2.0,vendor4@example.com
+vendor5,Vendor vendor5,UK,false,2.0,vendor5@example.com
+vendor6,Vendor vendor6,UK,false,1.6,vendor6@example.com
+vendor7,Vendor vendor7,USA,true,1.6,vendor7@example.com
+vendor8,Vendor vendor8,Canada,true,1.6;2.0,vendor8@example.com
+vendor9,Vendor vendor9,UK,true,1.6;2.0,vendor9@example.com
+vendor10,Vendor vendor10,USA,true,1.6,vendor10@example.com

@@ -1,4 +1,11 @@
-evseGroupId,name,siteId
-EG1,Group A,S1
-EG2,Group B,S1
-EG3,Group C,S2
+id,siteId,name,created,status,notes
+group1,site5,Group group1,2022-10-16T17:51:13,Operational,
+group2,site3,Group group2,2021-10-18T10:15:33,Operational,
+group3,site9,Group group3,2022-08-28T18:38:58,Operational,
+group4,site10,Group group4,2021-09-09T18:42:24,Maintenance,
+group5,site1,Group group5,2021-03-28T21:21:55,Maintenance,
+group6,site5,Group group6,2021-07-05T23:42:52,Operational,
+group7,site4,Group group7,2022-11-13T23:17:06,Operational,
+group8,site2,Group group8,2022-07-23T11:44:47,Maintenance,
+group9,site2,Group group9,2022-08-14T18:39:07,Operational,
+group10,site3,Group group10,2022-05-28T10:38:48,Maintenance,
